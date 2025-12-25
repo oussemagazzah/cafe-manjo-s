@@ -8,6 +8,20 @@ A modern restaurant and cafe management system built with React, TypeScript, and
 
 > The demo is automatically deployed via GitHub Pages on every push to the main branch.
 
+### Demo Credentials
+
+The demo version includes pre-configured accounts for testing:
+
+**Administrator Account:**
+- Email: `admin@demo.com`
+- Password: `admin123`
+- Access: Full access to all features including user management and product management
+
+**Server Account:**
+- Email: `serveur@demo.com`
+- Password: `serveur123`
+- Access: Dashboard, orders, and reservations (no access to admin features)
+
 ## Features
 
 - 📊 **Dashboard** - Real-time overview of orders, revenue, and reservations
