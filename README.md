@@ -4,9 +4,9 @@ A modern restaurant and cafe management system built with React, TypeScript, and
 
 ## 🚀 Live Demo
 
-**[View Live Demo](https://YOUR_USERNAME.github.io/orderly-table-main/)**
+**[View Live Demo](https://oussemagazzah.github.io/cafe-manjo-s/)**
 
-> **Note**: Replace `YOUR_USERNAME` with your GitHub username in the URL above. The demo is automatically deployed via GitHub Pages.
+> The demo is automatically deployed via GitHub Pages on every push to the main branch.
 
 ## Features
 
@@ -42,8 +42,8 @@ A modern restaurant and cafe management system built with React, TypeScript, and
 1. Clone the repository:
 
 ```bash
-git clone <YOUR_GIT_URL>
-cd orderly-table-main
+git clone https://github.com/oussemagazzah/cafe-manjo-s.git
+cd cafe-manjo-s
 ```
 
 2. Install dependencies:
@@ -121,7 +121,7 @@ This project is configured for automatic deployment to GitHub Pages:
 3. **Deploy**:
    - Push to the `main` branch
    - GitHub Actions will automatically build and deploy your site
-   - The site will be available at: `https://YOUR_USERNAME.github.io/orderly-table-main/`
+   - The site will be available at: `https://oussemagazzah.github.io/cafe-manjo-s/`
 
 ### Manual Build
 
