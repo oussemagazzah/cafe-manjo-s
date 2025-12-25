@@ -6,7 +6,7 @@ This guide will help you deploy your Orderly Table application to GitHub Pages.
 
 1. Go to [GitHub](https://github.com) and sign in
 2. Click the "+" icon in the top right → "New repository"
-3. Name it `orderly-table-main` (or your preferred name)
+3. Name it `cafe-manjo-s` (or your preferred name)
 4. **Do NOT** initialize with README, .gitignore, or license (we already have these)
 5. Click "Create repository"
 
@@ -15,12 +15,14 @@ This guide will help you deploy your Orderly Table application to GitHub Pages.
 After creating the repository, GitHub will show you commands. Use these:
 
 ```bash
-# Add your GitHub repository as remote (replace YOUR_USERNAME with your GitHub username)
-git remote add origin https://github.com/YOUR_USERNAME/orderly-table-main.git
+# Add your GitHub repository as remote
+git remote add origin https://github.com/oussemagazzah/cafe-manjo-s.git
 
 # Push to GitHub
 git push -u origin main
 ```
+
+> **Note**: The code has already been pushed to the repository!
 
 ## Step 3: Enable GitHub Pages
 
@@ -73,14 +75,13 @@ Once deployment is complete:
 1. Go to **Settings** → **Pages**
 2. Your site URL will be shown at the top:
    ```
-   https://YOUR_USERNAME.github.io/orderly-table-main/
+   https://oussemagazzah.github.io/cafe-manjo-s/
    ```
 3. It may take a few minutes for the site to be accessible
 
 ## Step 8: Update README
 
-Don't forget to update the demo link in `README.md`:
-- Replace `YOUR_USERNAME` with your actual GitHub username in the demo link
+> **Note**: The README has already been updated with the correct demo link!
 
 ## Troubleshooting
 
