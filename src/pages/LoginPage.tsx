@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuth, DEMO_CREDENTIALS } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Coffee, Eye, EyeOff, Loader2 } from 'lucide-react';
+import { Coffee, Eye, EyeOff, Loader2, Copy, Check } from 'lucide-react';
 import { toast } from 'sonner';
 import { z } from 'zod';
 
@@ -25,7 +25,8 @@ export default function LoginPage() {
   const [username, setUsername] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const { login, signUp, isAuthenticated, loading } = useAuth();
+  const [copiedField, setCopiedField] = useState<string | null>(null);
+  const { login, signUp, isAuthenticated, loading, isDemoMode } = useAuth();
   const navigate = useNavigate();
 
   // Redirect if already authenticated
@@ -189,11 +190,158 @@ export default function LoginPage() {
             </Button>
           </form>
 
+          {/* Demo Credentials */}
+          {isDemoMode && !isSignUp && (
+            <div className="mt-6 space-y-4">
+              <div className="p-4 bg-accent/10 border border-accent/20 rounded-lg">
+                <p className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
+                  <Coffee className="w-4 h-4" />
+                  Comptes de démonstration
+                </p>
+                <div className="space-y-3">
+                  {/* Admin Credentials */}
+                  <div className="bg-card rounded-lg p-3 border border-border">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs font-medium text-foreground">Administrateur</span>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        className="h-7 text-xs"
+                        onClick={() => {
+                          setEmail(DEMO_CREDENTIALS.admin.email);
+                          setPassword(DEMO_CREDENTIALS.admin.password);
+                          toast.success('Identifiants admin remplis');
+                        }}
+                      >
+                        Utiliser
+                      </Button>
+                    </div>
+                    <div className="space-y-1 text-xs">
+                      <div className="flex items-center justify-between">
+                        <span className="text-muted-foreground">Email:</span>
+                        <div className="flex items-center gap-1">
+                          <code className="text-foreground font-mono">{DEMO_CREDENTIALS.admin.email}</code>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              navigator.clipboard.writeText(DEMO_CREDENTIALS.admin.email);
+                              setCopiedField('admin-email');
+                              setTimeout(() => setCopiedField(null), 2000);
+                              toast.success('Email copié');
+                            }}
+                            className="text-muted-foreground hover:text-foreground transition-colors"
+                          >
+                            {copiedField === 'admin-email' ? (
+                              <Check className="w-3 h-3" />
+                            ) : (
+                              <Copy className="w-3 h-3" />
+                            )}
+                          </button>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-muted-foreground">Mot de passe:</span>
+                        <div className="flex items-center gap-1">
+                          <code className="text-foreground font-mono">{DEMO_CREDENTIALS.admin.password}</code>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              navigator.clipboard.writeText(DEMO_CREDENTIALS.admin.password);
+                              setCopiedField('admin-password');
+                              setTimeout(() => setCopiedField(null), 2000);
+                              toast.success('Mot de passe copié');
+                            }}
+                            className="text-muted-foreground hover:text-foreground transition-colors"
+                          >
+                            {copiedField === 'admin-password' ? (
+                              <Check className="w-3 h-3" />
+                            ) : (
+                              <Copy className="w-3 h-3" />
+                            )}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Serveur Credentials */}
+                  <div className="bg-card rounded-lg p-3 border border-border">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs font-medium text-foreground">Serveur</span>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        className="h-7 text-xs"
+                        onClick={() => {
+                          setEmail(DEMO_CREDENTIALS.serveur.email);
+                          setPassword(DEMO_CREDENTIALS.serveur.password);
+                          toast.success('Identifiants serveur remplis');
+                        }}
+                      >
+                        Utiliser
+                      </Button>
+                    </div>
+                    <div className="space-y-1 text-xs">
+                      <div className="flex items-center justify-between">
+                        <span className="text-muted-foreground">Email:</span>
+                        <div className="flex items-center gap-1">
+                          <code className="text-foreground font-mono">{DEMO_CREDENTIALS.serveur.email}</code>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              navigator.clipboard.writeText(DEMO_CREDENTIALS.serveur.email);
+                              setCopiedField('serveur-email');
+                              setTimeout(() => setCopiedField(null), 2000);
+                              toast.success('Email copié');
+                            }}
+                            className="text-muted-foreground hover:text-foreground transition-colors"
+                          >
+                            {copiedField === 'serveur-email' ? (
+                              <Check className="w-3 h-3" />
+                            ) : (
+                              <Copy className="w-3 h-3" />
+                            )}
+                          </button>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-muted-foreground">Mot de passe:</span>
+                        <div className="flex items-center gap-1">
+                          <code className="text-foreground font-mono">{DEMO_CREDENTIALS.serveur.password}</code>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              navigator.clipboard.writeText(DEMO_CREDENTIALS.serveur.password);
+                              setCopiedField('serveur-password');
+                              setTimeout(() => setCopiedField(null), 2000);
+                              toast.success('Mot de passe copié');
+                            }}
+                            className="text-muted-foreground hover:text-foreground transition-colors"
+                          >
+                            {copiedField === 'serveur-password' ? (
+                              <Check className="w-3 h-3" />
+                            ) : (
+                              <Copy className="w-3 h-3" />
+                            )}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Info */}
           <div className="mt-6 p-4 bg-muted/50 rounded-lg">
             <p className="text-xs text-muted-foreground">
               {isSignUp 
                 ? 'Après inscription, un admin devra vous attribuer un rôle pour accéder au système.'
+                : isDemoMode
+                ? 'Mode démo activé. Utilisez les comptes ci-dessus pour tester l\'application.'
                 : 'Connectez-vous avec votre email et mot de passe.'}
             </p>
           </div>
