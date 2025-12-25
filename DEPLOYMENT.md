@@ -41,10 +41,12 @@ If your app uses Supabase, you need to add your credentials:
 3. Add these two secrets:
 
    **Secret 1:**
+
    - Name: `VITE_SUPABASE_URL`
    - Value: Your Supabase project URL (from Supabase dashboard → Settings → API)
 
    **Secret 2:**
+
    - Name: `VITE_SUPABASE_PUBLISHABLE_KEY`
    - Value: Your Supabase anon/public key (from Supabase dashboard → Settings → API)
 
@@ -55,6 +57,7 @@ If your app uses Supabase, you need to add your credentials:
 ## Step 5: Trigger Deployment
 
 The deployment will automatically trigger when you:
+
 - Push to the `main` branch (already done if you pushed in Step 2)
 - Or manually trigger it:
   1. Go to **Actions** tab in your repository
@@ -86,16 +89,19 @@ Once deployment is complete:
 ## Troubleshooting
 
 ### Build Fails
+
 - Check the **Actions** tab for error messages
 - Ensure all dependencies are in `package.json`
 - Verify environment variables are set correctly
 
 ### Site Not Loading
+
 - Wait 5-10 minutes after deployment (DNS propagation)
 - Check if the workflow completed successfully
 - Verify the base path in `vite.config.ts` matches your repository name
 
 ### 404 Errors on Routes
+
 - This is normal for SPAs on GitHub Pages
 - The `.nojekyll` file should handle this
 - If issues persist, check that `vite.config.ts` has the correct base path
@@ -113,4 +119,3 @@ If you want to use a custom domain:
 - Check GitHub Actions logs in the **Actions** tab
 - Review the workflow file: `.github/workflows/deploy.yml`
 - GitHub Pages documentation: https://docs.github.com/en/pages
-
